@@ -1,1 +1,2 @@
-# react-app
+# starwars
+Работа с api в реакт
