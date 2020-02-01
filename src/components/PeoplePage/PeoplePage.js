@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import {ItemList} from "../ItemList/ItemList";
 import {PersonDetails} from "../PersonDetails/PersonDetails";
 import {ErrorIndicator} from "../ErrorIndicator/ErrorIndicator";
+import {DataService} from "../../services/DataService";
+import {Row} from "../Row/Row"
 
 export class PeoplePage extends Component {
   constructor() {
     super();
+    this.dataService = new DataService();
     this.state = {
       selectedPerson: null,
       hasError: false
@@ -27,15 +30,17 @@ export class PeoplePage extends Component {
     if (hasError) {
       return <ErrorIndicator/>;
     }
+
+    const itemList = (
+      <ItemList onItemSelected={this.onPersonSelected} getData={this.dataService.getAllPeople} renderItem={(item) => (<span>{item.name}</span>)}/>
+    );
+
+    const personDetails = (
+      <PersonDetails personId={selectedPerson}/>
+    );
+
     return (
-      <div className="row mb2">
-        <div className="col-md-6">
-          <ItemList onItemSelected={this.onPersonSelected} />
-        </div>
-        <div className="col-md-6">
-          <PersonDetails personId={selectedPerson}/>
-        </div>
-      </div>
+      <Row left={itemList} right={personDetails} />
     );
   }
 }

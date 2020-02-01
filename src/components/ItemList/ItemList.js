@@ -1,43 +1,44 @@
 import React, {Component} from 'react';
 import './ItemList.scss';
-import {DataService} from "../../services/DataService";
 import {Spinner} from "../Spinner/Spinner";
 
 export class ItemList extends Component {
   constructor() {
     super();
-    this.dataService = new DataService();
     this.state = {
-      peopleList: null,
+      itemsList: null,
     }
   }
 
   componentDidMount() {
-    this.dataService.getAllPeople().then((peopleList) => {
+    const {getData} = this.props;
+    getData().then((itemsList) => {
       this.setState({
-        peopleList
+        itemsList
       });
     });
   }
 
   renderItems(arr) {
-    return arr.map(({id, name}) => {
+    return arr.map((item) => {
+      const {id} = item;
+      const label = this.props.renderItem(item);
       return (
         <li className="list-group-item" key={id} onClick={() => this.props.onItemSelected(id)}>
-          {name}
+          {label}
         </li>
       );
     });
   }
 
   render() {
-    const {peopleList} = this.state;
+    const {itemsList} = this.state;
 
-    if (!peopleList) {
+    if (!itemsList) {
       return <Spinner/>
     }
 
-    const items = this.renderItems(peopleList);
+    const items = this.renderItems(itemsList);
 
     return (
       <ul className="item-list list-group">
