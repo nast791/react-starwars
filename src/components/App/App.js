@@ -9,6 +9,11 @@ import './App.scss';
 
 
 export class App extends Component {
+  constructor() {
+    super();
+    this.dataService = new DataService();
+  }
+
   render() {
     return (
       <div className="wrapper">
