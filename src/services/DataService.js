@@ -46,7 +46,7 @@ export class DataService {
     return item.url.match(idRegExp)[1];
   }
 
-  _transformPlanet(planet) {
+  _transformPlanet = (planet) => {
     return {
       id: this._getId(planet),
       name: planet.name,
@@ -56,7 +56,7 @@ export class DataService {
     }
   }
 
-  _transformPerson(person) {
+  _transformPerson = (person) => {
     return {
       id: this._getId(person),
       name: person.name,
@@ -66,7 +66,7 @@ export class DataService {
     }
   }
 
-  _transformShip(ship) {
+  _transformShip = (ship) => {
     return {
       id: this._getId(ship),
       name: ship.name,
