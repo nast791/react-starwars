@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import {DataService} from '../../services/DataService.js';
 import './RandomPlanet.scss';
 import {Spinner} from "../Spinner/Spinner";
 import {ErrorIndicator} from "../ErrorIndicator/ErrorIndicator";
 
 export class RandomPlanet extends Component {
+  static defaultProps = {
+    updateInterval: 5000,
+  }
+
+  static propTypes = {
+    updateInterval: PropTypes.number
+  }
+
   constructor() {
     super();
     this.dataService = new DataService();
@@ -36,8 +45,9 @@ export class RandomPlanet extends Component {
   }
 
   componentDidMount() {
+    const {updateInterval} = this.props;
     this.updatePlanet();
-    this.interval = setInterval(this.updatePlanet, 3000);
+    this.interval = setInterval(this.updatePlanet, updateInterval);
   }
 
   componentWillUnmount() {
@@ -61,7 +71,6 @@ export class RandomPlanet extends Component {
     );
   }
 }
-
 
 const PlanetView = ({planet}) => {
   const { id, name, population, rotationPeriod, diameter } = planet;
