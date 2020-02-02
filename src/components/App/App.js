@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {DataService} from '../../services/DataService.js';
+import {Provider} from '../DataServiceContext/DataServiceContext.js';
 import {Header} from '../Header/Header.js';
 import {RandomPlanet} from '../RandomPlanet/RandomPlanet.js';
-import {PeoplePage} from '../PeoplePage/PeoplePage.js';
-import {PlanetDetails} from '../PlanetDetails/PlanetDetails.js';
-import {StarshipDetails} from '../StarshipDetails/StarshipDetails.js';
+import {PeoplePage} from '../Pages/PeoplePage.js';
+import {PlanetsPage} from '../Pages/PlanetsPage.js';
+import {ShipsPage} from '../Pages/ShipsPage.js';
 import './App.scss';
 
 
@@ -16,11 +17,15 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <Header />
-        <RandomPlanet />
-        <PeoplePage />
-      </div>
+      <Provider value={this.dataService}>
+        <div className="wrapper">
+          <Header />
+          <RandomPlanet />
+          <PeoplePage />
+          <PlanetsPage />
+          <ShipsPage />
+        </div>
+      </Provider>
     );
   }
 }

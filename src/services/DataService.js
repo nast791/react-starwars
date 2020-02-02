@@ -1,6 +1,7 @@
 export class DataService {
   constructor() {
    this._apiBase = 'https://swapi.co/api';
+   this._imageBase = 'https://starwars-visualguide.com/assets/img/';
   }
 
   getResource = async (url) => {
@@ -39,6 +40,18 @@ export class DataService {
   getShip = async (id) => {
     const ship = await this.getResource(`/starships/${id}/`);
     return this._transformShip(ship);
+  }
+
+  getPersonImage = ({id}) => {
+    return `${this._imageBase}/characters/${id}.jpg`;
+  }
+
+  getPlanetImage = ({id}) => {
+    return `${this._imageBase}/planets/${id}.jpg`;
+  }
+
+  getShipImage = ({id}) => {
+    return `${this._imageBase}/starships/${id}.jpg`;
   }
 
   _getId = (item) => {

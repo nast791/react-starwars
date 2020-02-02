@@ -1,28 +1,18 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import './ItemList.scss';
-import {Spinner} from "../Spinner/Spinner";
+import {HocDataView} from "../HocDataView/HocDataView";
 
 export class ItemList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      itemsList: null,
-    }
-  }
-
-  componentDidMount() {
-    const {getData} = this.props;
-    getData().then((itemsList) => {
-      this.setState({
-        itemsList
-      });
-    });
+  static propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.func.isRequired
   }
 
   renderItems(arr) {
     return arr.map((item) => {
       const {id} = item;
-      const label = this.props.renderItem(item);
+      const label = this.props.children(item);
       return (
         <li className="list-group-item" key={id} onClick={() => this.props.onItemSelected(id)}>
           {label}
@@ -32,13 +22,8 @@ export class ItemList extends Component {
   }
 
   render() {
-    const {itemsList} = this.state;
-
-    if (!itemsList) {
-      return <Spinner/>
-    }
-
-    const items = this.renderItems(itemsList);
+    const { data } = this.props;
+    const items = this.renderItems(data);
 
     return (
       <ul className="item-list list-group">
@@ -47,3 +32,5 @@ export class ItemList extends Component {
     );
   }
 }
+
+export const HocItemList = HocDataView(ItemList);
