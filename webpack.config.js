@@ -89,7 +89,7 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: 'static/css', to: 'css' },
-      // { from: 'static/js', to: 'js' },
+      // { from: 'manifest.json', to: 'manifest.json' },
     ]),
   ]
 };

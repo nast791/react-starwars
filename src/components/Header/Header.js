@@ -7,23 +7,23 @@ export class Header extends Component {
     return (
       <div className="header d-flex">
         <h3>
-          <Link to="/react-starwars/">Star DB</Link>
+          <Link to="/">Star DB</Link>
         </h3>
         <ul className="d-flex">
           <li>
-            <Link to="/react-starwars/people/">People</Link>
+            <Link to="/people/">People</Link>
           </li>
           <li>
-            <Link to="/react-starwars/planets/">Planets</Link>
+            <Link to="/planets/">Planets</Link>
           </li>
           <li>
-            <Link to="/react-starwars/ships/">Starships</Link>
+            <Link to="/ships/">Starships</Link>
           </li>
           <li>
-            <Link to="/react-starwars/login/">Login</Link>
+            <Link to="/login/">Login</Link>
           </li>
           <li>
-            <Link to="/react-starwars/secret/">Secret</Link>
+            <Link to="/secret/">Secret</Link>
           </li>
         </ul>
       </div>
