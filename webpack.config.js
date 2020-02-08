@@ -9,7 +9,8 @@ module.exports = {
   // devtool: 'source-map',
   devServer: {
     port: 8080, // http://localhost:8080/
-    // contentBase: './docs',
+    historyApiFallback: true,
+    contentBase: './docs'
   },
   entry: './src/index.js',
   output: {
