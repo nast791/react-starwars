@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": ".",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --content-base=dist --history-api-fallback",
+    "start": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
