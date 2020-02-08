@@ -11,19 +11,19 @@ export class Header extends Component {
         </h3>
         <ul className="d-flex">
           <li>
-            <Link to="/people/">People</Link>
+            <Link to="/react-starwars/people/">People</Link>
           </li>
           <li>
-            <Link to="/planets/">Planets</Link>
+            <Link to="/react-starwars/planets/">Planets</Link>
           </li>
           <li>
-            <Link to="/ships/">Starships</Link>
+            <Link to="/react-starwars/ships/">Starships</Link>
           </li>
           <li>
-            <Link to="/login/">Login</Link>
+            <Link to="/react-starwars/login/">Login</Link>
           </li>
           <li>
-            <Link to="/secret/">Secret</Link>
+            <Link to="/react-starwars/secret/">Secret</Link>
           </li>
         </ul>
       </div>
