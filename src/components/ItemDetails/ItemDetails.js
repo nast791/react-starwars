@@ -39,7 +39,7 @@ export class ItemDetails extends Component {
     const {item, image, loading} = this.state;
 
     if (!item) {
-      return <span>Select a person from a list</span>;
+      return <span>Select a item from a list</span>;
     }
 
     const spinner = loading ? <Spinner/> : null;
