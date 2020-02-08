@@ -10,5 +10,5 @@ export const SecretPage = ({ isLoggedIn }) => {
     )
   }
 
-  return <Redirect to="/login/"/>
+  return <Redirect to="/react-starwars/login/"/>
 }

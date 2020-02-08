@@ -37,11 +37,12 @@ export class App extends Component {
             <RandomPlanet />
             <Switch>
               <Route path="/" exact render={() => <h2>Welcome to StarDB</h2>} />
-              <Route path="/people/:id?" component={PeoplePage} />
-              <Route path="/planets/" component={PlanetsPage} />
-              <Route path="/ships/" component={ShipsPage} />
-              <Route path="/login/" render={() => (<LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin}/>)} />
-              <Route path="/secret/"  render={() => (<SecretPage isLoggedIn={isLoggedIn} />)} />
+              <Route path="/react-starwars/" exact render={() => <h2>Welcome to StarDB</h2>} />
+              <Route path="/react-starwars/people/:id?" component={PeoplePage} />
+              <Route path="/react-starwars/planets/" component={PlanetsPage} />
+              <Route path="/react-starwars/ships/" component={ShipsPage} />
+              <Route path="/react-starwars/login/" render={() => (<LoginPage isLoggedIn={isLoggedIn} onLogin={this.onLogin}/>)} />
+              <Route path="/react-starwars/secret/"  render={() => (<SecretPage isLoggedIn={isLoggedIn} />)} />
               <Route render={() => <h2>Page not found</h2>}/>
             </Switch>
           </div>
