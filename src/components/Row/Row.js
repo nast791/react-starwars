@@ -14,7 +14,7 @@ export const Row = ({ left, right }) => {
   );
 };
 
-Row.PropTypes = {
+Row.propTypes = {
   left: PropTypes.node,
   right: PropTypes.node,
 }
